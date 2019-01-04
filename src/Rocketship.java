@@ -10,6 +10,7 @@ public class Rocketship extends GameObject {
 		verticalSpeed = 0;
 	}
 	void update() {
+        super.update();
 		x += horizontalSpeed;
 		y += verticalSpeed;
 	}

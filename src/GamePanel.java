@@ -42,6 +42,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	}
 	void updateGameState() {
 		objectManager.update();
+		objectManager.manageEnemies();
+		objectManager.checkCollision();
+		objectManager.purgeObjects();
 	}
 	void updateEndState() {
 		
@@ -108,6 +111,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		//menu/game/end states
 		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
 			if(currentState == END_STATE){
                 currentState = MENU_STATE;
@@ -131,6 +135,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		}
 		else if(e.getKeyCode()==KeyEvent.VK_DOWN) {
 			rocket.verticalSpeed = 5;
+		}
+		//projectile
+		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+			 objectManager.addProjectile(new Projectile(rocket.x+20, rocket.y, 10, 10));
 		}
 
 	}
