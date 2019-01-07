@@ -9,13 +9,13 @@ public class ObjectManager {
 	ArrayList<Alien> alien = new ArrayList<Alien>();
 	long enemyTimer = 0;
 	int enemySpawnTime = 1000;
-//	int score = 0;
+	int score = 0;
 	ObjectManager(Rocketship rocket){
 		this.rocket = rocket;
 	}
-//	int getScore() {
-//		return score;
-//	}
+	int getScore() {
+		return score;
+	}
 	void update() {
 		rocket.update();
 		for (Projectile projectile : projectile) {
@@ -57,6 +57,7 @@ public class ObjectManager {
 		for (int j = alien.size() - 1; j >= 0; j--) {
 			if(alien.get(j).isAlive == false) {
 				alien.remove(j);
+				
 			}
 		}
 	}
@@ -68,6 +69,7 @@ public class ObjectManager {
 		for (Projectile projectile : projectile) {
 				if(projectile.collisionBox.intersects(alien.collisionBox)){
 	                alien.isAlive = false;
+	                score++;
 	        }
 		}
 	}
