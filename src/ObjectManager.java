@@ -49,12 +49,12 @@ public class ObjectManager {
         }
 	}
 	void purgeObjects() {
-		for (int i = projectile.size() -1; i >0; i--) {
+		for (int i = projectile.size() -1; i >= 0; i--) {
 			if(projectile.get(i).isAlive == false) {
 				projectile.remove(i);
 			}
 		}
-		for (int j = alien.size() - 1; j>0; j--) {
+		for (int j = alien.size() - 1; j >= 0; j--) {
 			if(alien.get(j).isAlive == false) {
 				alien.remove(j);
 			}

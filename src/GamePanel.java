@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState =  MENU_STATE;
+	//hi Keith
 	GamePanel(){
 		time = new Timer(1000/60, this);
 		rocket = new Rocketship(250, 700, 50, 50);
@@ -75,7 +76,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.setColor(Color.BLACK);
 		g.drawString("Game Over", 120, 200);
 		g.setFont(enemies);
-		g.drawString("You killed ____ enemies", 120, 400);
+		g.drawString("You killed" + objectManager.getScore() +" enemies", 120, 400);
 		g.setFont(restart);
 		g.drawString("Press ENTER to restart", 120, 600);
 	}
